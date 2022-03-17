@@ -5,7 +5,7 @@ import {
   isEndpointFile,
   isMiddlewareFile,
   loadModule,
-} from "./helpers";
+} from "./utils";
 import { Endpoint, Middleware } from "./interfaces";
 
 require("ts-node").register({
@@ -23,7 +23,10 @@ interface ExtractedPaths {
   middlewares: Middleware[];
 }
 
-export function extractFromFolders(rootNode: Node, options: Options): ExtractedPaths {
+export function extractFromFolders(
+  rootNode: Node,
+  options: Options
+): ExtractedPaths {
   const endpoints = [];
   const middlewares = [];
 
@@ -44,7 +47,13 @@ function searchAndRegister(
   const children = node.children;
 
   if (!children || (children && children.length === 0)) {
-    const module = loadModule(node.path);
+    let module;
+
+    try {
+      module = loadModule(node.path);
+    } catch (err) {
+      return;
+    }
 
     if (!module) {
       return;

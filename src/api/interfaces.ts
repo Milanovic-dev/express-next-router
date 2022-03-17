@@ -1,5 +1,3 @@
-import { Request as ExpressRequest } from "express";
-
 export type Method = "get" | "put" | "post" | "patch" | "delete";
 
 export type Handler = (req: Request, res: Response) => Promise<any>;
@@ -13,8 +11,4 @@ export interface Endpoint {
 export interface Middleware {
   path: string;
   handlers: Handler[];
-}
-
-export interface Request extends ExpressRequest {
-  validate: (input: any) => boolean;
 }

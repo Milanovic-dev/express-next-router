@@ -1,4 +1,3 @@
-
-export default function getAuthor(req, res) {
-
-}
+export const get = (req, res) => {
+  res.send("Hi");
+};

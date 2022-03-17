@@ -41,7 +41,8 @@ export function isValidMethod(method: Method) {
     method === "delete" ||
     method === "post" ||
     method === "patch" ||
-    method === "put"
+    method === "put" ||
+    method === "all"
   );
 }
 
@@ -51,13 +52,12 @@ export function getLoadedModuleProperties(loadedModule: any) {
   });
 }
 
-
 export function loadModule(name: string) {
   let module = require(name);
 
   if (module.default) {
-    if (typeof module.default === 'function') {
-      return { get: module.default }
+    if (typeof module.default === "function") {
+      return { all: module.default };
     }
 
     return module.default;
@@ -67,5 +67,5 @@ export function loadModule(name: string) {
 }
 
 export function isFunction(obj: any) {
-  return typeof obj === 'function'
+  return typeof obj === "function";
 }

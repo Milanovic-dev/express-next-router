@@ -1,7 +1,7 @@
 import { Application } from "express";
-import { buildEndpoint } from "./builder";
+import { buildHandlerChain } from "./builder";
 import { extractFromFolders } from "./dirTreeSearch";
-import { isValidMethod } from "./helpers";
+import { isValidMethod } from "./utils";
 import { Endpoint, Method, Middleware } from "./interfaces";
 import { createLogger, Logger } from "./logger";
 const dirTree = require("directory-tree");
@@ -13,12 +13,17 @@ export interface Options {
 
 let logger: Logger;
 
-export function applyRoutes(app: Application, options: Options = { logger: true, customUri: "/api" }) {
+export function applyRoutes(
+  app: Application,
+  options: Options = { logger: true, customUri: "/api" }
+) {
   const start = performance.now();
   logger = createLogger(options);
   logger.logWait("collecting routes");
 
-  const tree = dirTree(`${process.cwd()}${options?.customUri ? options?.customUri : "/api"}`);
+  const tree = dirTree(
+    `${process.cwd()}${options?.customUri ? options?.customUri : "/api"}`
+  );
 
   if (!tree) {
     logger.logError("Cannot find the root folder: " + options.customUri);
@@ -27,7 +32,7 @@ export function applyRoutes(app: Application, options: Options = { logger: true,
 
   const { endpoints, middlewares } = extractFromFolders(tree, {
     ...options,
-    customUri: tree.name
+    customUri: tree.name,
   });
 
   try {
@@ -51,12 +56,14 @@ function registerEndpointsToApp(
         continue;
       }
 
-      const handlerChain = buildEndpoint(endpoint.methods[method], getMiddlewaresForPath(
-        endpoint.path,
-        middlewares
-      ));
+      const endpointHandler = endpoint.methods[method];
 
-      app[method](endpoint.computedPath, ...handlerChain as any);
+      const handlerChain = buildHandlerChain(
+        endpointHandler,
+        getMiddlewaresForPath(endpoint.path, middlewares)
+      );
+
+      app[method](endpoint.computedPath, ...handlerChain);
       logger.logRoute(`${method.toUpperCase()} ${endpoint.computedPath}`);
     }
   }
