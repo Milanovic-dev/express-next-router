@@ -19,14 +19,18 @@ export function applyRoutes(
 ) {
   const start = performance.now();
   logger = createLogger(options);
-  logger.logWait("collecting routes");
+  logger.logWait("Collecting your routes.");
+  logger.log("Press Ctrl+C to cancel.");
+  logger.log("");
 
   const tree = dirTree(
     `${process.cwd()}${options?.customUri ? options?.customUri : "/api"}`
   );
 
   if (!tree) {
-    logger.logError("Cannot find the root folder: " + options.customUri);
+    logger.logError(
+      "There's no api folder in this directory. \nMake sure you have api folder in root directory or add a custom uri through options."
+    );
     return;
   }
 
@@ -37,9 +41,7 @@ export function applyRoutes(
 
   try {
     registerEndpointsToApp(app, endpoints, middlewares);
-    logger.logSuccess(
-      `done in ${Math.floor((performance.now() - start) / 1000)}s`
-    );
+    logger.logSuccess(`Routed (${(performance.now() - start).toFixed(0)}ms)`);
   } catch (err) {
     logger.logError(err);
   }

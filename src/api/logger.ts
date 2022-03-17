@@ -1,6 +1,7 @@
 import { Options } from "./applyRoutes";
+var Spinner = require("cli-spinner").Spinner;
 
-const clc = require("cli-color");
+const colors = require("cli-color");
 
 enum LogType {
   INFO = "INFO",
@@ -11,62 +12,45 @@ enum LogType {
 }
 
 export interface Logger {
-  log: (message: string, type: LogType) => void;
-  logInfo: (message: string) => void;
+  log: (message: string) => void;
+  logWait: (message: string) => void;
+  logSuccess: (message: string) => void;
   logRoute: (message: string) => void;
   logError: (message: string) => void;
-  logSuccess: (message: string) => void;
-  logWait: (message: string) => void;
-}
-
-function getColorFunction(type: LogType) {
-  switch (type) {
-    case LogType.INFO:
-      return clc.magenta("info");
-    case LogType.SUCCESS:
-      return clc.green("success");
-    case LogType.ERROR:
-      return clc.red("error");
-    case LogType.WAIT:
-      return clc.blue("wait");
-    default:
-      return clc.magenta("route");
-  }
 }
 
 export function createLogger({ logger = true }: Partial<Options>): Logger {
-  function log(message: string, type: LogType) {
+  function log(message: string) {
     if (!logger) return;
 
-    console.log(`${getColorFunction(type)} - ${message}`);
+    console.log(message);
   }
 
   function logSuccess(message: string) {
-    log(message, LogType.SUCCESS);
-  }
-
-  function logError(message: string) {
-    log(message, LogType.ERROR);
-  }
-
-  function logWait(message: string) {
-    log(message, LogType.WAIT);
-  }
-
-  function logInfo(message: string) {
-    log(message, LogType.INFO);
+    log("");
+    log(colors.green("✓ ") + message);
+    log("");
   }
 
   function logRoute(message: string) {
-    log(message, LogType.ROUTE);
+    log("➜ " + colors.yellow(message));
+  }
+
+  function logError(message: string) {
+    log("");
+    log(colors.red("Next Router Error: " + message));
+    log("");
+  }
+
+  function logWait(message: string) {
+    log(message);
   }
 
   return {
     log,
-    logInfo,
+    logWait,
+    logSuccess,
     logRoute,
     logError,
-    logSuccess,
-    logWait,
   };
 }
