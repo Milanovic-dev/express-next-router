@@ -1,10 +1,6 @@
-Next.js API routing style adaptation for Node and Express [express](http://expressjs.com/)
+Next.js API routing style adaptation for [Node](https://nodejs.org/en/) and [Express](http://expressjs.com/)
 
 Inspired by [Next.js](https://nextjs.org/docs/getting-started) by Vercel
-
-[![NPM Version][npm-version-image]][npm-url]
-[![NPM Install Size][npm-install-size-image]][npm-install-size-url]
-[![NPM Downloads][npm-downloads-image]][npm-downloads-url]
 
 ```js
 const applyRoutes = require("express-next-router").applyRoutes;
@@ -42,6 +38,8 @@ Create a "api/health.js" that exports a "get" function like below, it will be
 accessible at GET /api/health
 
 ```js
+// api/health.js
+
 module.exports = {
   get: (req, res) => {
     res.status(200).send("ok");
@@ -53,6 +51,8 @@ To make sure your routes are applied to the express router, call applyRoutes
 and pass your express instance
 
 ```js
+// server.js
+
 const applyRoutes = require("express-next-router").applyRoutes;
 const express = require("express");
 const app = express();
@@ -60,6 +60,17 @@ const app = express();
 applyRoutes(app);
 
 app.listen(8000);
+```
+
+After your run server.js, you should see the output below in your terminal:
+
+```console
+🕐 Collecting your routes.
+Press Ctrl+C to cancel.
+
+➜ GET /api/health
+
+✓ Routed (2ms)
 ```
 
 ## Features
