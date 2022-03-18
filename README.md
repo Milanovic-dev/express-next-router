@@ -30,11 +30,11 @@ You're done!
 
 ## Quick Start
 
-A REST api Route is a javascript function exported from ".js" or ".ts" file in "api" directory. Each route is created based on it's file name.
+With express-next-router, api endpoint is a javascript function exported from `.js` or `.ts` file in `api` directory. Each route is created based on it's file name.
 
-To start, create a directory named "api" in the root of your express project.
+To start, create a directory named `api` in the root of your express project.
 
-Create a "api/health.js" that exports a "get" function like below, it will be
+Create a `api/health.js` that exports a `get` function like below, it will be
 accessible at GET /api/health
 
 ```js
@@ -73,6 +73,8 @@ Press Ctrl+C to cancel.
 ✓ Routed (2ms)
 ```
 
+Thats it! You've successfully created a GET endpoint
+
 ## Features
 
 ### REST Methods
@@ -89,5 +91,5 @@ methods:
 
 ### Dynamic Routes
 
-To create a dymanic route, create a file or called "api/dogs/[dogId].js",
-then it will be accessible at "/api/dogs/:dogId"
+To create a dymanic route, create a file or called `api/dogs/[dogId].js`,
+then it will be accessible at `/api/dogs/:dogId`
