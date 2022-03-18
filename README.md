@@ -75,6 +75,13 @@ Press Ctrl+C to cancel.
 ✓ Routed (2ms)
 ```
 
+Now you can test your endpoint at localhost:
+
+```console
+  $ curl http://localhost:8000/api/health
+  $ ok
+```
+
 Thats it! You've successfully created a GET endpoint
 
 ## Features
