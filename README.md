@@ -48,7 +48,7 @@ module.exports = {
 ```
 
 To make sure your routes are applied to the express router, call applyRoutes
-and pass your express instance
+and pass your express app
 
 ```js
 // server.js
@@ -92,4 +92,53 @@ methods:
 ### Dynamic Routes
 
 To create a dymanic route, create a file or called `api/dogs/[dogId].js`,
-then it will be accessible at `/api/dogs/:dogId`
+then it will be accessible at `/api/dogs/1` or `/api/dogs/2`
+
+## ES Modules
+
+If you don't want to use commonJS, you can also write your apis as ES Modules
+
+```js
+// api/dogs.js
+
+export default {
+  get: (req, res) => {
+    res.status(200).send("I'm GET");
+  },
+  post: (req, res) => {
+    res.status(200).send("I'm POST");
+  },
+  patch: (req, res) => {
+    res.status(200).send("I'm PATCH");
+  },
+};
+```
+
+or
+
+```js
+// api/dogs.js
+
+export const get = (req, res) => {
+  res.status(200).send("I'm GET");
+};
+
+export const post = (req, res) => {
+  res.status(200).send("I'm POST");
+};
+
+export const patch = (req, res) => {
+  res.status(200).send("I'm PATCH");
+};
+```
+
+If you want accept any method, with ES Modules you can export default a function:
+
+```js
+// api/dogs.js
+
+export default function handler(req, res) {
+  console.log(req.method);
+  res.status(200).send();
+}
+```
