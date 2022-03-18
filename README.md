@@ -47,7 +47,7 @@ module.exports = {
 };
 ```
 
-To make sure your routes are applied to the express router, call applyRoutes
+To make sure your routes are applied to the express router, call `applyRoutes`
 and pass your express app
 
 ```js
@@ -58,6 +58,7 @@ const express = require("express");
 const app = express();
 
 applyRoutes(app);
+// -> App is populated with routes after the call
 
 app.listen(8000);
 ```
@@ -65,6 +66,7 @@ app.listen(8000);
 After your run server.js, you should see the output below in your terminal:
 
 ```console
+$ node server.js
 🕐 Collecting your routes.
 Press Ctrl+C to cancel.
 
@@ -77,7 +79,7 @@ Thats it! You've successfully created a GET endpoint
 
 ## Features
 
-### REST Methods
+### Endpoints and Methods
 
 In order to create different REST methods, export a function with name one of the
 methods:
@@ -89,6 +91,8 @@ methods:
 - patch
 - all (accepts all methods)
 
+### Middleware
+
 ### Dynamic Routes
 
 To create a dymanic route, create a file or called `api/dogs/[dogId].js`,
@@ -96,7 +100,7 @@ then it will be accessible at `/api/dogs/1` or `/api/dogs/2`
 
 ## ES Modules
 
-If you don't want to use commonJS, you can also write your apis as ES Modules
+If you don't want to use CommonJS, you can also write your apis as ES Modules
 
 ```js
 // api/dogs.js
@@ -142,3 +146,11 @@ export default function handler(req, res) {
   res.status(200).send();
 }
 ```
+
+## Limitations
+
+Because we define our endpoints through files and directories, express wildcard is **not** supported, as it is not a valid character when naming files. However you can still use express app instance to add as you normally would.
+
+## License
+
+[MIT](LICENSE)
