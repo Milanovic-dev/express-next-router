@@ -5,4 +5,7 @@ module.exports = {
     const bookId = req.params.bookId;
     res.send(bookId);
   },
+  fn: () => {
+    console.log("fn");
+  },
 };

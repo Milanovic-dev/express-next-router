@@ -1,4 +1,3 @@
-import e = require("express");
 import { Method } from "./interfaces";
 
 export function computePathToUrl(pathUri: string, uri: string): string {

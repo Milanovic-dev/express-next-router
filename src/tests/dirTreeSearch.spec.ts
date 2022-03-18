@@ -1,5 +1,4 @@
-import { extractFromFolders } from '../api/dirTreeSearch';
-import { loadModule } from '../api/helpers';
+import { extractFromFolders } from "../core/dirTreeSearch";
 const dirTree = require("directory-tree");
 
 describe("Directory traversal", () => {
@@ -7,7 +6,7 @@ describe("Directory traversal", () => {
 
   beforeAll(() => {
     tree = dirTree(`${process.cwd()}/src/tests/api`);
-  })
+  });
 
   it("Extracts Hello endpoint from folder", () => {
     expect(tree).toBeDefined();
@@ -18,5 +17,5 @@ describe("Directory traversal", () => {
     expect(endpoints[0].methods["post"]).toBeDefined();
     expect(endpoints[0].methods["patch"]).toBeDefined();
     expect(endpoints[0].methods["delete"]).toBeDefined();
-  })
-})
+  });
+});

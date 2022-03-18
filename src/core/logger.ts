@@ -1,19 +1,9 @@
 import { Options } from "./applyRoutes";
-var Spinner = require("cli-spinner").Spinner;
 
 const colors = require("cli-color");
-
-enum LogType {
-  INFO = "INFO",
-  ERROR = "ERROR",
-  SUCCESS = "SUCCESS",
-  WAIT = "WAIT",
-  ROUTE = "ROUTE",
-}
-
 export interface Logger {
   log: (message: string) => void;
-  logWait: (message: string) => void;
+  logWait: (message: string) => any;
   logSuccess: (message: string) => void;
   logRoute: (message: string) => void;
   logError: (message: string) => void;
@@ -43,7 +33,7 @@ export function createLogger({ logger = true }: Partial<Options>): Logger {
   }
 
   function logWait(message: string) {
-    log(message);
+    log("🕐 " + message);
   }
 
   return {
