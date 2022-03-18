@@ -34,8 +34,7 @@ With express-next-router, api endpoint is a javascript function exported from `.
 
 To start, create a directory named `api` in the root of your express project.
 
-Create a `api/health.js` that exports a `get` function like below, it will be
-accessible at GET /api/health
+Create a `api/health.js` that exports a `get` function like below:
 
 ```js
 // api/health.js
@@ -46,6 +45,8 @@ module.exports = {
   },
 };
 ```
+
+Endpoint will be accessible at GET /api/health
 
 To make sure your routes are applied to the express router, call `applyRoutes`
 and pass your express app
@@ -66,7 +67,6 @@ app.listen(8000);
 After your run server.js, you should see the output below in your terminal:
 
 ```console
-$ node server.js
 🕐 Collecting your routes.
 Press Ctrl+C to cancel.
 
