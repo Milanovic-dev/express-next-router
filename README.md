@@ -143,6 +143,19 @@ export const patch = (req, res) => {
 };
 ```
 
+After running your server, you should see the output below:
+
+```console
+🕐 Collecting your routes.
+Press Ctrl+C to cancel.
+
+➜ GET /api/dogs
+➜ POST /api/dogs
+➜ PATCH /api/dogs
+
+✓ Routed (2ms)
+```
+
 If you want accept any method, with ES Modules you can export default a function:
 
 ```js
