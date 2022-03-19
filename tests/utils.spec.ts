@@ -1,4 +1,4 @@
-import { computePathToUrl, isValidMethod } from "../core/utils";
+import { computePathToUrl, isValidMethod } from "../lib/core/utils";
 
 describe("OS path should be computed", () => {
   it("should convert a basic path to api route", () => {

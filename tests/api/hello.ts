@@ -1,16 +1,14 @@
-
-
 export default {
   get: (req, res) => {
     res.send("Hello GET");
   },
   post: (req, res) => {
-    res.send("Hello POST")
+    res.send("Hello POST");
   },
   patch: (req, res) => {
-    res.send("Hello PATCH")
+    res.send("Hello PATCH");
   },
   delete: (req, res) => {
-    res.send("Hello DELETE")
+    res.send("Hello DELETE");
   },
-}
+};

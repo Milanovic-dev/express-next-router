@@ -1,11 +1,11 @@
-import { extractFromFolders } from "../core/dirTreeSearch";
+import { extractFromFolders } from "../lib/core/dirTreeSearch";
 const dirTree = require("directory-tree");
 
 describe("Directory traversal", () => {
   let tree;
 
   beforeAll(() => {
-    tree = dirTree(`${process.cwd()}/src/tests/api`);
+    tree = dirTree(`${process.cwd()}/tests/api`);
   });
 
   it("Extracts Hello endpoint from folder", () => {
