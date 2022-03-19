@@ -105,6 +105,8 @@ To match a dynamic segment, you can use the bracket syntax. This allows you to m
 - `api/dogs/[slug].js` → `/api/dogs/:slug` (Exp: /api/dogs/1)
 - `api/[dogId]/breed.js` → `/api/:dogId/breed` (Exp: /api/2/breed)
 
+All parameters will be accessible at express request object (req.params)
+
 ### Middleware
 
 To include middleware in your routes:
