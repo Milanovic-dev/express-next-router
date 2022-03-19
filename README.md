@@ -98,12 +98,47 @@ methods:
 - patch
 - all (accepts all methods)
 
-### Middleware
-
 ### Dynamic Routes
 
-To create a dymanic route, create a file or called `api/dogs/[dogId].js`,
-then it will be accessible at `/api/dogs/1` or `/api/dogs/2`
+To match a dynamic segment, you can use the bracket syntax. This allows you to match named parameters.
+
+- `api/dogs/[slug].js` → `/api/dogs/:slug` (Exp: /api/dogs/1)
+- `api/[dogId]/breed.js` → `/api/:dogId/breed` (Exp: /api/2/breed)
+
+### Middleware
+
+To include middleware in your routes:
+
+1. create a `_middleware.js` file inside `/api` directory, or any folder inside `/api`
+
+2. export a function from the `_middleware.js` file:
+
+```js
+export function middleware(req, res, next) {
+  console.log("I'm a middleware!");
+  next();
+}
+```
+
+Middleware will only affect endpoints that are in the same directory as `_middleware.js` file
+
+To include middleware at method level, export an array of functions instead of
+a single function:
+
+```js
+module.exports = {
+  get: [
+    (req, res, next) => {
+      console.log("Middleware");
+      next();
+    },
+    (req, res) => {
+      console.log("Route handler");
+      res.status(200).send();
+    },
+  ],
+};
+```
 
 ## ES Modules
 
@@ -169,7 +204,9 @@ export default function handler(req, res) {
 
 ## Limitations
 
-Because we define our endpoints through files and directories, express wildcard is **not** supported, as it is not a valid character when naming files. However you can still use express app instance to add as you normally would.
+Because we define our endpoints through files and directories, express wildcard is **not** supported, as it is not a valid character when naming files.
+
+However you can still use express app instance to add routes as you normally would.
 
 ## License
 
