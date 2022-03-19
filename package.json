@@ -1,11 +1,12 @@
 {
   "name": "express-next-router",
-  "version": "1.0.1",
-  "description": "Next.js style routing adaptation for Express and REST api.",
+  "version": "1.0.2",
+  "description": "Next.js API routing style adaptation for Node and Express.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "start": "tsc src/setup && node src/setup",
+    "build": "tsc",
     "test": "jest",
     "prepublish": "tsc"
   },
