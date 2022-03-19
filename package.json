@@ -1,6 +1,6 @@
 {
   "name": "express-next-router",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "Next.js API routing style adaptation for Node and Express.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -13,6 +13,10 @@
   "keywords": ["node", "next", "express", "api", "style", "routing", "router", "rest", "http", "web", "framework"],
   "author": "Nikola Milanovic",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Milanovic-dev/express-next-router"
+  },
   "devDependencies": {
     "@babel/core": "^7.16.12",
     "@babel/preset-env": "^7.16.11",
