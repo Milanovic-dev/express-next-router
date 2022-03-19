@@ -10,6 +10,7 @@
     "test": "jest",
     "prepublish": "tsc"
   },
+  "keywords": ["node", "next", "express", "api", "style", "routing", "router", "rest", "http", "web", "framework"],
   "author": "Nikola Milanovic",
   "license": "ISC",
   "devDependencies": {
