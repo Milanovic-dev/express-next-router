@@ -118,7 +118,7 @@ To include middleware in your routes:
 2. export a function from the `_middleware.js` file:
 
 ```js
-export function middleware(req, res, next) {
+export default function middleware(req, res, next) {
   console.log("I'm a middleware!");
   next();
 }
