@@ -2,6 +2,8 @@ Next.js API routing style adaptation for [Node](https://nodejs.org/en/) and [Exp
 
 Inspired by [Next.js](https://nextjs.org/docs/getting-started) by Vercel
 
+**IMPORTANT: This package is in BETA**
+
 ```js
 const applyRoutes = require("express-next-router").applyRoutes;
 const express = require("express");
@@ -209,6 +211,16 @@ export default function handler(req, res) {
 Because we define our endpoints through files and directories, express wildcard is **not** supported, as it is not a valid character when naming files.
 
 However you can still use express app instance to add routes as you normally would.
+
+# API References
+
+You can pass an options object to the `applyRoutes` as second parameter:
+
+| Key           |                                               Description                                               |
+| ------------- | :-----------------------------------------------------------------------------------------------------: |
+| customUri     | Uri where to look for your api folder. Use this if you don't want to put your api folder in root folder |
+| col 2 is      |                                                centered                                                 |
+| zebra stripes |                                                are neat                                                 |
 
 ## License
 
