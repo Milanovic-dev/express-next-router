@@ -14,6 +14,11 @@ applyRoutes(app);
 app.listen(8000);
 ```
 
+## Prerequisite
+
+It's recommended to get familiar with the Express framework first [Express.js](https://expressjs.com/), as
+this package builds upon it.
+
 ## Installation
 
 First, install express
@@ -195,7 +200,7 @@ Press Ctrl+C to cancel.
 ✓ Routed (2ms)
 ```
 
-If you want accept any method, with ES Modules you can export default a function:
+If you want to accept any method, with ES Modules you can export default a function:
 
 ```js
 // api/dogs.js
@@ -208,7 +213,7 @@ export default function handler(req, res) {
 
 ## Limitations
 
-Because we define our endpoints through files and directories, express wildcard is **not** supported, as it is not a valid character when naming files.
+Because we define our endpoints through files and directories, express wildcard `*` is **not** supported, as it is not a valid character when naming files.
 
 However you can still use express app instance to add routes as you normally would.
 
