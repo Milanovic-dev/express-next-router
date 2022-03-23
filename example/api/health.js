@@ -1,11 +1,11 @@
 module.exports = {
   get: [
     (req, res, next) => {
-      req.user = { name: "Nikola" };
+      console.log("Middleware");
       next();
     },
     (req, res) => {
-      console.log(req.user);
+      console.log("Route handler");
       res.status(200).send();
     },
   ],
