@@ -6,7 +6,6 @@ module.exports = {
     },
     (req, res) => {
       console.log(req.user);
-      console.log("Second");
       res.status(200).send();
     },
   ],

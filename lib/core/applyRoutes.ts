@@ -23,13 +23,15 @@ export function applyRoutes(
   logger.log("Press Ctrl+C to cancel.");
   logger.log("");
 
-  const tree = dirTree(
-    `${process.cwd()}${options?.customUri ? options?.customUri : "/api"}`
-  );
+  const apiUrl = `${process.cwd()}/${
+    options?.customUri ? options?.customUri : "/api"
+  }`;
+
+  const tree = dirTree(apiUrl);
 
   if (!tree) {
     logger.logError(
-      "There's no api folder in this directory. \nMake sure you have api folder in root directory or add a custom uri through options."
+      `There's no api folder in this directory. \nMake sure you have api folder in root directory or add a custom uri through options. \n(${apiUrl})`
     );
     return;
   }
