@@ -221,10 +221,10 @@ However you can still use express app instance to add routes as you normally wou
 
 You can pass an options object to the `applyRoutes` as second parameter:
 
-| Key                |                                               Description                                               |
-| ------------------ | :-----------------------------------------------------------------------------------------------------: |
-| customUri (string) | Uri where to look for your api folder. Use this if you don't want to put your api folder in root folder |
-| logger (boolean)   |                                             Enable logging                                              |
+| Key                |                                                             Description                                                              |
+| ------------------ | :----------------------------------------------------------------------------------------------------------------------------------: |
+| customUri (string) | Relative path where to look for your api folder. Use this if you don't want to put your api folder in root folder (Example: src/api) |
+| logger (boolean)   |                                                            Enable logging                                                            |
 
 ## License
 

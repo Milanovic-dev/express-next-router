@@ -1,7 +1,7 @@
 {
   "name": "express-next-router",
-  "version": "1.0.6",
-  "description": "Next.js API routing style adaptation for Node and Express.",
+  "version": "1.0.7",
+  "description": "API directory routing for Node and Express.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
