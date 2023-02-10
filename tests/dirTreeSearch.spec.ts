@@ -10,7 +10,7 @@ describe("Directory traversal", () => {
 
   it("Extracts Hello endpoint from folder", () => {
     expect(tree).toBeDefined();
-    const { endpoints } = extractFromFolders(tree, { customUri: tree.name });
+    const { endpoints } = extractFromFolders(tree, { uri: tree.name });
 
     expect(endpoints.length).toEqual(1);
     expect(endpoints[0].methods["get"]).toBeDefined();
