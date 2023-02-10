@@ -17,9 +17,7 @@ export function createLogger({ logger = true }: Partial<Options>): Logger {
   }
 
   function logSuccess(message: string) {
-    log("");
     log(colors.green("✓ ") + message);
-    log("");
   }
 
   function logRoute(message: string) {
