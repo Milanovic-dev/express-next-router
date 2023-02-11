@@ -1,5 +1,7 @@
 Lightweight folder-based API routing style for [Node](https://nodejs.org/en/) and [Express](http://expressjs.com/)
 
+This package is [TS](https://www.typescriptlang.org/) compatible. Examples are in Javascript but it can be applied the same for Typescript.
+
 ```js
 const applyRoutes = require("express-next-router").applyRoutes;
 const express = require("express");
