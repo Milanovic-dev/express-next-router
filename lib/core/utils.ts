@@ -35,13 +35,14 @@ export function isMiddlewareFile(name: string) {
 }
 
 export function isValidMethod(method: Method) {
+  const methodLowerCase = method.toLowerCase()
   return (
-    method === "get" ||
-    method === "delete" ||
-    method === "post" ||
-    method === "patch" ||
-    method === "put" ||
-    method === "all"
+    methodLowerCase === "get" ||
+    methodLowerCase  === "delete" ||
+    methodLowerCase  === "post" ||
+    methodLowerCase  === "patch" ||
+    methodLowerCase  === "put" ||
+    methodLowerCase  === "all"
   );
 }
 

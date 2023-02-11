@@ -62,7 +62,7 @@ function searchAndRegister(
     if (isEndpointFile(node.name)) {
       endpoints.push({
         path: node.path,
-        computedPath: computePathToUrl(node.path, options.customUri),
+        computedPath: computePathToUrl(node.path, options.uri),
         methods: module as Record<string, any>,
       });
     } else if (isMiddlewareFile(node.name)) {
