@@ -1,6 +1,6 @@
 {
   "name": "express-next-router",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "description": "API directory routing for Node and Express.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -10,7 +10,19 @@
     "test": "jest",
     "prepublish": "tsc"
   },
-  "keywords": ["node", "next", "express", "api", "style", "routing", "router", "rest", "http", "web", "framework"],
+  "keywords": [
+    "node",
+    "next",
+    "express",
+    "api",
+    "style",
+    "routing",
+    "router",
+    "rest",
+    "http",
+    "web",
+    "framework"
+  ],
   "author": "Nikola Milanovic",
   "license": "ISC",
   "repository": {
@@ -35,5 +47,7 @@
     "log-symbols": "^5.1.0",
     "ts-node": "^10.4.0"
   },
-  "files": ["/dist"]
+  "files": [
+    "/dist"
+  ]
 }
