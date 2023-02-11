@@ -34,5 +34,6 @@
     "fs": "^0.0.1-security",
     "log-symbols": "^5.1.0",
     "ts-node": "^10.4.0"
-  }
+  },
+  "files": ["/dist"]
 }
