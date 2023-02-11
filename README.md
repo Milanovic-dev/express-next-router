@@ -205,7 +205,7 @@ export default function handler(req, res) {
 
 If you want to include static files, you can use `static` option and specify your static folders:
 
-```
+```js
 applyRoutes(app, {
   static: {
     folders: ["example/static", "example/static2"],
@@ -215,15 +215,13 @@ applyRoutes(app, {
 
 After this, your static files should be available from:
 
+Example: 
 http://localhost:3000/images/kitten.jpg
 http://localhost:3000/css/style.css
-http://localhost:3000/js/app.js
-http://localhost:3000/images/bg.png
-http://localhost:3000/hello.html
 
 If you want all static files to be server from one folder, you can use express virtual uri:
 
-```
+```js
 applyRoutes(app, {
   uri: "example/api",
   static: {
@@ -235,11 +233,9 @@ applyRoutes(app, {
 
 After this, your static files should be available from:
 
+Example:
 http://localhost:3000/static/images/kitten.jpg
 http://localhost:3000/static/css/style.css
-http://localhost:3000/static/js/app.js
-http://localhost:3000/static/images/bg.png
-http://localhost:3000/static/hello.html
 
 ## Limitations
 
