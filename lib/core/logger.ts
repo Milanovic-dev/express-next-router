@@ -25,9 +25,9 @@ export function createLogger({ logger = true }: Partial<Options>): Logger {
   }
 
   function logError(message: string) {
-    log("");
-    log(colors.red("Next Router Error: " + message));
-    log("");
+    console.log("");
+    console.log(colors.red("Next Router Error: " + message));
+    console.log("");
   }
 
   function logWait(message: string) {

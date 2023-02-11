@@ -10,4 +10,6 @@ applyRoutes(app, {
   },
 });
 
+console.log(app)
+
 app.listen(8000);

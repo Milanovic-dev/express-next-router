@@ -1,4 +1,4 @@
-import { Application, static as expressStatic } from "express";
+import { Application, static as expressStatic, Router } from "express";
 import { buildHandlerChain } from "./builder";
 import { extractFromFolders } from "./dirTreeSearch";
 import { isValidMethod } from "./utils";
@@ -11,7 +11,7 @@ export interface Options {
   logger?: boolean;
   static?: {
     folders: string[];
-    virtual: string;
+    virtual?: string;
   };
 }
 
@@ -29,10 +29,7 @@ export function applyRoutes(
   const tree = dirTree(apiUrl);
 
   if (!tree) {
-    logger.logError(
-      `There's no api folder in this directory. \nMake sure you have api folder in root directory or add a custom uri through options. \n(${apiUrl})`
-    );
-    return;
+    throw new Error(`There's no api folder in this directory. \nMake sure you have api folder in root directory or add a custom uri through options. \n(${apiUrl})`)
   }
 
   const { endpoints, middlewares } = extractFromFolders(tree, {
